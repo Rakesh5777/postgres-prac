@@ -22,7 +22,7 @@ connectToDB();
 app.get('/createTable/:tableName', async (req, res) => {
     const { tableName } = req.params;
     try {
-        const sanitizedTableName = tableName.replace(/[^a-zA-Z0-9]/g, '');
+        const sanitizedTableName = tableName.replace(/[^a-zA-Z0-9_]/g, '');
         const result = await client.query(`
         CREATE TABLE IF NOT EXISTS ${sanitizedTableName} (
             id SERIAL PRIMARY KEY,
@@ -43,7 +43,7 @@ app.get('/createTable/:tableName', async (req, res) => {
 app.delete('/deleteTable/:tableName', async (req, res) => {
     const { tableName } = req.params;
     try {
-        const sanitizedTableName = tableName.replace(/[^a-zA-Z0-9]/g, '');
+        const sanitizedTableName = tableName.replace(/[^a-zA-Z0-9_]/g, '');
         const result = await client.query(`DROP TABLE
         ${sanitizedTableName};`);
         console.log(result);
