@@ -1,0 +1,48 @@
+# Node.js
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# TypeScript
+*.tsbuildinfo
+
+# Build output
+dist/
+
+# IDE
+.vscode/
+.idea/
+*.code-workspace
+
+# Logs
+logs/
+*.log
+
+# Dependency lock files
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+.env.development
+.env.test
+.env.production
+
+# Miscellaneous
+.DS_Store
+Thumbs.db
+# Ignore node_modules directory
+node_modules/
+
+# Ignore built JavaScript files
+dist/
+
+# Ignore TypeScript build artifacts
+*.js
+*.js.map
+
+# Ignore environment variables file
+.env
