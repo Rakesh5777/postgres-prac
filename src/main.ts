@@ -77,6 +77,17 @@ app.post('/addUser/:tableName', async (req, res) => {
     }
 });
 
+app.delete('/deleteUser/:tableName/:username', async (req, res) => {
+    const { tableName, username } = req.params;
+    try {
+        await client.query(`DELETE FROM ${tableName} WHERE username = $1;`, [username]);
+        return res.json({ message: 'User deleted' });
+    } catch (err) {
+        console.log(err);
+        return res.json({ message: 'User deletion failed', error: err });
+    }
+});
+
 app.get('/getUsers/:tableName', async (req, res) => {
     const { tableName } = req.params;
     const sanitizedTableName = tableName.replace(/[^a-zA-Z0-9]/g, '');
